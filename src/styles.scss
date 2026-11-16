@@ -1,0 +1,341 @@
+// ─────────────────────────────────────────────────────────────
+// Conecta — estilos globais
+// Identidade v5: abertura escura, conteúdo em fundo branco, cartões com sombra
+// e botões em pílula verde-lima (referência visual: análise em docs/).
+// As cores ficam em variáveis CSS; blocos escuros usam a classe .escuro.
+// ─────────────────────────────────────────────────────────────
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/CabinetGrotesk-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  // Paleta
+  --navy: #141a2e;
+  --ink: #12172b;
+  --graphite: #171a1f;
+  --lime: #97d138;
+  --lime-forte: #4a7a0c; // verde legível sobre branco (rótulos)
+  --mint: #5ee2b9;
+  --cinza: #f6f7f9;
+
+  // Fundo escuro com um leve verde à esquerda e azul à direita
+  --grad-escuro:
+    radial-gradient(60rem 34rem at 12% 0%, rgba(74, 110, 60, 0.38), transparent 70%),
+    radial-gradient(52rem 36rem at 100% 40%, rgba(45, 72, 120, 0.5), transparent 72%),
+    linear-gradient(180deg, #1b2530 0%, #171d33 100%);
+  --grad-destaque: linear-gradient(95deg, var(--lime) 0%, var(--mint) 100%);
+
+  // Tokens de tema: padrão claro
+  --bg: #ffffff;
+  --text: var(--ink);
+  --muted: #5a6377;
+  --line: #e5e8ee;
+  --surface: #ffffff;
+  --accent: var(--lime);
+  --accent-text: var(--lime-forte);
+  --cta: var(--lime);
+  --cta-text: var(--ink);
+  --mono: var(--graphite);
+  --sombra: 0 1px 2px rgba(18, 23, 43, 0.05), 0 10px 30px -8px rgba(18, 23, 43, 0.14);
+  --sombra-forte: 0 2px 4px rgba(18, 23, 43, 0.06), 0 22px 44px -12px rgba(18, 23, 43, 0.24);
+
+  --font-display: 'Cabinet Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-text: 'Switzer', 'Segoe UI', system-ui, sans-serif;
+
+  // O site ocupa a largura inteira da tela: só sobra esta margem pequena nas laterais.
+  --gutter: clamp(1.25rem, 2.2vw, 2.75rem);
+  // O símbolo fica um pouco mais fechado sobre fundo claro; nos blocos escuros, cor pura.
+  --simbolo-filtro: saturate(1.15) brightness(0.88);
+  --header-h: 5.25rem;
+  --raio: 1rem;
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+}
+
+// Blocos escuros (hero, frase de efeito, chamada final, rodapé)
+.escuro {
+  --bg: var(--navy);
+  --text: #ffffff;
+  --muted: #c5ccdb;
+  --line: rgba(255, 255, 255, 0.14);
+  --surface: rgba(255, 255, 255, 0.06);
+  --accent-text: var(--lime);
+  --mono: #ffffff;
+  --simbolo-filtro: none;
+  color: var(--text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  // O fundo da página é escuro: é o que aparece atrás dos cubos na abertura.
+  background: var(--navy);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+svg {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// ── Estrutura ────────────────────────────────────────────────
+.wrap {
+  width: calc(100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4.5rem, 11vh, 7.5rem);
+  background: var(--bg);
+  color: var(--text);
+}
+
+// Seção em cinza bem claro, alternando com o branco
+.section--cinza {
+  --bg: var(--cinza);
+  border-block: 1px solid var(--line);
+}
+
+// Cabeçalho de seção: rótulo verde + título
+.topo {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 54rem;
+}
+
+.label {
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 3.7vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: clamp(1.5rem, 1.8vw, 1.88rem);
+  color: var(--muted);
+  max-width: 44rem;
+  text-wrap: pretty;
+}
+
+// Texto com o degradê verde → menta (só sobre fundo escuro)
+.destaque {
+  font-style: normal;
+  background: var(--grad-destaque);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// ── Cartão ───────────────────────────────────────────────────
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+
+.card--sobe:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-forte);
+}
+
+// Etiqueta pequena (tecnologias, tópicos)
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  background: #eef1f6;
+  font-size: 1.28rem;
+  font-weight: 500;
+  color: #3d465a;
+}
+
+// ── Botões em pílula ─────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 1.36rem;
+  line-height: 1.2;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s,
+    color 0.25s,
+    box-shadow 0.25s,
+    transform 0.25s var(--ease);
+
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    transition: transform 0.3s var(--ease);
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &--cta {
+    background: var(--cta);
+    color: var(--cta-text);
+    box-shadow: 0 8px 22px -10px rgba(151, 209, 56, 0.9);
+
+    &:hover {
+      background: #a6dd4b;
+    }
+  }
+
+  &--line {
+    border-color: color-mix(in srgb, var(--text) 32%, transparent);
+
+    &:hover {
+      border-color: var(--text);
+    }
+  }
+
+  &--pequeno {
+    min-height: 2.75rem;
+    padding: 0.55rem 1.3rem;
+    font-size: 1.3rem;
+  }
+}
+
+// ── Entrada dos blocos ao rolar (diretiva appReveal) ─────────
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.6s var(--ease),
+    transform 0.6s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+
+  &.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Movimento reduzido: nada de transição nem rolagem animada
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Durante a abertura a página não rola (os cubos precisam chegar ao cabeçalho).
+html.intro-lock {
+  overflow: hidden;
+}

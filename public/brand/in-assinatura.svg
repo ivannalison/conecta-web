@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Assinatura IN (Ivan Nalison Cassimiro Xavier).
+  Geometria de referência, traçada UMA única vez a partir de docs/image_7b488c4a.jpg
+  (doc. mestre v4.0, seção 2.2). Não redesenhar: reutilizar este arquivo.
+  Sempre monocromática: branco sobre fundo escuro ou Graphite (#171A1F) sobre fundo claro.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="105 94 1023 818" fill="#FFFFFF" role="img" aria-label="IN">
+  <path d="M105 94H270V236H228V136H147V236H105Z"/>
+  <path d="M105 302H147V870H228V302H270V912H105Z"/>
+  <path d="M360 94H487L811 466L1128 102V169L811 533L465 136H402V682L360 724Z"/>
+  <path d="M1114 284V345L914 580L960 633V591L999 552V741L861 583Z"/>
+  <path d="M485 286L998 875H1085V456L1124 420V912H980L528 393V556L485 599Z"/>
+  <path d="M603 550L362 791V912H526V766L485 807V870H401V796L623 574Z"/>
+</svg>

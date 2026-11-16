@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Símbolo da Conecta: sete cubos isométricos.
+  Geometria de referência, medida UMA única vez a partir de
+  docs/Sete Cubos Azuis Isométricos.png (doc. mestre, seção 2.1). Não redesenhar.
+  Cores da identidade v5 (16/11/2026): degradê verde-lima → menta, um tom por cubo.
+  Os mesmos números e cores estão em src/app/scene/logo-geometry.ts (CUBE_COLORS).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-398 -411 796 822">
+  <g transform="translate(0 -278)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#8fd460"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#81c056"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#73ab4c"/>
+  </g>
+  <g transform="translate(-268.5 -141)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#97d138"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#88bd32"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#79a92b"/>
+  </g>
+  <g transform="translate(268.5 -141)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#75dd9d"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#69c88e"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#5db27e"/>
+  </g>
+  <g transform="translate(0 0)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#7fda8c"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#72c57e"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#65b070"/>
+  </g>
+  <g transform="translate(-268.5 141)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#87d778"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#7ac36c"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#6cae60"/>
+  </g>
+  <g transform="translate(268.5 141)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#5ee2b9"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#54cda7"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#4ab795"/>
+  </g>
+  <g transform="translate(0 278)">
+    <polygon points="0,-133 129.5,-63 0,7 -129.5,-63" fill="#6bdfab"/>
+    <polygon points="-129.5,-63 0,7 0,133 -129.5,63" fill="#60ca9b"/>
+    <polygon points="129.5,-63 0,7 0,133 129.5,63" fill="#55b48a"/>
+  </g>
+</svg>
